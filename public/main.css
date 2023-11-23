@@ -36,8 +36,26 @@ a:link {
   }
   
   /* selected link */
-  a:active {
+a:active {
     color: blue;
     text-decoration: none;
     padding:5px;
+  }
+input[type=text] {
+    width: 40%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+input[type=submit] {
+    background-color: #4c8fa7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #71bbd6;
   }

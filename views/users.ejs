@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Primordial Discussions</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1>Users and their interests</h1>
+    <ul>
+        <% for(i=0; i<users.length; i++){ 
+          if (!users[i].username.includes("_21899879765487&98465543218465-")) { %>
+            <h2><%= users[i].username %></h2>
+            <p>Topic Membership:</p>
+            <ul>
+              <% for(j=0; j<users.length; j++){ %>
+                <% if (users[j].username.includes(users[i].username) && (users[j].username.includes(users[i].username) || users[j].username.includes("_21899879765487&98465543218465-"))) {%>
+                  <li><b><%= users[j].title %></b></li>
+                <% } %>
+            <%}%>
+            </ul>
+            </br>
+          <% } %>
+        <% } %>
+    </ul>
+  </body>
+</html>

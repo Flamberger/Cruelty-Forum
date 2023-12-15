@@ -9,7 +9,7 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'appuser',
     password: 'app2027',
-    database: 'myBookstore'
+    database: 'crueltyforum'
 });
 // Connect to the database
 db.connect((err) => {
@@ -41,10 +41,10 @@ app.set('view engine', 'ejs');
 app.engine('html', ejs.renderFile);
 
 // Define our data
-var shopData = {shopName: "Bertie's Books"}
+var forumData = {forumName: "Cruelty Forum"}
 
-// Requires the main.js file inside the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
-require("./routes/main")(app, shopData);
+// Requires the main.js file insiDe the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
+require("./routes/main")(app, forumData);
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

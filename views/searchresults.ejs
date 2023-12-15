@@ -1,16 +1,17 @@
 <!doctype html>
 <html>
   <head>
-    <title>Welcome to <%=shopName%></title>
+    <title>Welcome to <%=forumName%></title>
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
     <h1>Here are your search results:</h1>
-    <ul>
-        <% for(i=0;i<availableBooks.length;i++){ %>
-            <li><%=availableBooks[i].name%>, £<%=availableBooks[i].price%></li>
-        <% } %>
-    </ul>
+    <% for(i=0;i<posts.length;i++){ %>
+      <p><b><%=posts[i].header%> [<%=posts[i].title%>]</b></p>
+      <ul>
+            <li><%=posts[i].username%>: <%=posts[i].body%></li>
+      </ul>
+    <% } %>
     <p><a href="/search">Back to Search</a></p>
   </body>
 </html>

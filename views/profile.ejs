@@ -12,5 +12,14 @@
             <li><a href="/topic/<%= topics[i].title %>"><%= topics[i].title %></a></li>
         <% } %>
     </ul>
+    <h2>Here are their posts:</h2>
+    <ul>
+      <% for(i=0; i<posts.length; i++){ %>
+          <p><b><%= posts[i].header %></b>, in <a href="/topic/<%= topics[i].title %>"><%= topics[i].title %></a></p>
+          <ul>
+              <li><%= posts[i].body %></li>
+          </ul>
+      <% } %>
+    </ul>
   </body>
 </html>

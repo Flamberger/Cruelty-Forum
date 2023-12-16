@@ -52,7 +52,7 @@ module.exports = function(app, forumData) {
             if (err) {
                 res.redirect('./'); 
             }
-            if(req.body.username == result[0].username && req.body.password == result[0].password){
+            if(result.length > 0 && req.body.username == result[0].username && req.body.password == result[0].password){
                 session=req.session;
                 session.userid=req.body.username;
                 res.send(`Hey there, welcome ${req.body.username}! <a href="./">Click Here to go back to index</a>`);

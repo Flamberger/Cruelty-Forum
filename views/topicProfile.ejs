@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Primordial Discussions</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h2>Here are the members of this topics:</h2>
+    <ul>
+        <% for(i=0; i<users.length; i++){ %>
+            <li><a href="/profile/<%= users[i].username %>"><%= users[i].username %></a></li>
+        <% } %>
+    </ul>
+    <h2>Posts:</h2>
+    <ul>
+        <% for(i=0; i<posts.length; i++){ %>
+            <p><b><%= posts[i].header %></b>, by <a href="/profile/<%= users[i].username %>"><%= users[i].username %></a></p>
+            <ul>
+                <li><%= posts[i].body %></li>
+            </ul>
+        <% } %>
+    </ul>
+  </body>
+</html>

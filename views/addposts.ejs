@@ -5,14 +5,20 @@
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1><%=forumName%>: Add Book</h1>
-    <form method="POST" action="/bookadded">
-        <label for="name">Book Name:</label>
-        <input id="name" type="text" name="name" placeholder="House of Leaves" />
+    <h1><%=forumName%>: Add post</h1>
+    <form method="POST" action="/postadded">
+        <label for="header">Flashy Title:</label>
+        <input id="header" type="text" name="header" placeholder="post title" />
         </br>
-        <label for="price">Book Price:</label>
-        <input id="price" type="text" name="price" placeholder="2.20" />
+        <label for="body">Say what you need:</label>
+        <input id="body" type="text" name="body" placeholder="bare your mind to the world" />
         </br>
+        <label for="topicOptions">Select a topic:</label>
+        <select id="topicOptions" name="topicOptions">
+            <% topics.forEach(topics => { %>
+                <option value="<%=topics.title%>"><%=topics.title%></option>
+            <% }) %>
+        </select>
         <input type="submit" value="OK" />
     </form>
   </body>

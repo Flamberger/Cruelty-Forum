@@ -5,21 +5,11 @@
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1>Topics and their members:</h1>
+    <h1>Topics:</h1>
     <ul>
-        <% for(i=0; i<users.length; i++){ 
-          if (!users[i].title.includes("_21899879765487&98465543218465-")) { %>
-            <h2><%= users[i].title %></h2>
-            <p>Members:</p>
-            <ul>
-              <% for(j=0; j<users.length; j++){ %>
-                <% if (users[j].title.includes(users[i].title) && (users[j].title.includes(users[i].title) || users[j].title.includes("_21899879765487&98465543218465-"))) {%>
-                  <li><b><%= users[j].username %></b></li>
-                <% } %>
-            <%}%>
-            </ul>
-            </br>
-          <% } %>
+        <% for(i=0; i<topics.length; i++){ %>
+            <h2><a href="/topic/<%= topics[i].title %>"><%= topics[i].title %></a></h2>
+            <p><%=topics[i].description%></p>
         <% } %>
     </ul>
   </body>

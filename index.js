@@ -3,6 +3,7 @@ var express = require ('express');
 var ejs = require('ejs');
 var bodyParser= require ('body-parser');
 var mysql = require('mysql');
+var session = require('express-session');
 
 // details on what database to connect to and how to log in
 const db = mysql.createConnection ({
@@ -28,6 +29,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up css
 app.use(express.static(__dirname + '/public'));
+
+// 
+app.use(session({ 
+    secret: 'PrimalFortune', 
+    resave: false, 
+    cookie: { maxAge: 86400000 },
+    saveUninitialized: false 
+}));
 
 // Set the directory where Express will pick up HTML files
 // __dirname will get the current directory

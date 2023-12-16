@@ -5,10 +5,11 @@
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
-    <h1>Users and their interests</h1>
+    <h1>User <%= user %></h1>
+    <h2>Here are their topics:</h2>
     <ul>
-        <% for(i=0; i<users.length; i++){ %>
-            <h3><a href="/profile/<%=users[i].username%>"><%= users[i].username %></a></h3>
+        <% for(i=0; i<topics.length; i++){ %>
+            <li><a href="/topic/<%= topics[i].title %>"><%= topics[i].title %></a></li>
         <% } %>
     </ul>
   </body>

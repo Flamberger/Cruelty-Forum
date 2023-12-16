@@ -272,20 +272,25 @@ module.exports = function(app, forumData) {
                 if (err) {
                     return console.error(err.message);
                 }
-                idtopic = result[0].idtopic;
-                let sqlquery = "INSERT INTO posts (idtopic, idcreator, header, body) VALUES (?,?,?,?)";
-                // execute sql query
-                let newrecord = [idtopic, iduser, req.body.header, req.body.body];
-                db.query(sqlquery, newrecord, (err, result) => {
-                  if (err) {
-                    return console.error(err.message);
-                  }
-                  else {
-                    res.send('your post has been added to database, titled: '
-                              + req.body.header + ', body: ' + req.body.body 
-                              + '</br><p><a href="./">Click Here to go back to index</a></p>');
-                  }
-                });
+                if (result.length < 1) {
+                    res.send('<p>Make sure you are a memeber of a topic first. Find the topic profile page and then click the link to join</p><p><a href="./">Click Here to go back to index</a></p>')
+                } else {
+                    idtopic = result[0].idtopic;
+                    
+                    let sqlquery = "INSERT INTO posts (idtopic, idcreator, header, body) VALUES (?,?,?,?)";
+                    // execute sql query
+                    let newrecord = [idtopic, iduser, req.body.header, req.body.body];
+                    db.query(sqlquery, newrecord, (err, result) => {
+                        if (err) {
+                            return console.error(err.message);
+                        }
+                        else {
+                            res.send('your post has been added to database, titled: '
+                            + req.body.header + ', body: ' + req.body.body 
+                            + '</br><p><a href="./">Click Here to go back to index</a></p>');
+                        }
+                    });
+                }
             });
         });
     });

@@ -8,10 +8,10 @@
     <h1><%=forumName%>: Add post</h1>
     <form method="POST" action="/postadded">
         <label for="header">Flashy Title:</label>
-        <input id="header" type="text" name="header" placeholder="post title" />
+        <input id="header" type="text" name="header" placeholder="post title" required/>
         </br>
         <label for="body">Say what you need:</label>
-        <input id="body" type="text" name="body" placeholder="bare your mind to the world" />
+        <input id="body" type="text" name="body" placeholder="bare your mind to the world" required/>
         </br>
         <label for="topicOptions">Select a topic:</label>
         <select id="topicOptions" name="topicOptions">
